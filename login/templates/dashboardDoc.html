@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DENTAL LAB - S.G</title>
+  <link rel="stylesheet" href="..//css/dashboardDoc.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="..//img/logo.png" alt="Diente, Logo del laboratorio" title="Logo">
+    <h1>LABORATORIO DENTAL</h1>
+  </header>
+
+  <div class="content">
+    <div class="header2">
+      <div class="headersup">
+        <p id="home">Home / <b>Dashboard</b></p>
+        <div class="busqueda">
+          <input type="text" placeholder="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="configuracion">
+          <a href="#"><i class="fa-solid fa-gear"></i></a>
+        </div>
+
+        <div class="notificacion">
+          <a href="#"><i class="fa-solid fa-bell"></i></a>
+        </div>
+
+        <nav class="navbar">
+          <div class="profile-dropdown">
+            <div onclick="toggle()" class="profile-dropdown-btn">
+              <div class="profile-img">
+              </div>
+            </div>
+
+            <ul class="profile-dropdown-list">
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-regular fa-user"></i>
+                  Edit Profile
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-regular fa-envelope"></i>
+                  Inbox
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-solid fa-chart-line"></i>
+                  Analytics
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-solid fa-sliders"></i>
+                  Settings
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-regular fa-circle-question"></i>
+                  Help & Support
+                </a>
+              </li>
+              <hr />
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'signout' %}">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Log out
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="headerinf">
+        <p id="home2">Home / Dashboard</p>
+      </div>
+    </div>
+
+    <main>
+      <section class="botones">
+        <div class="botonesdos">
+          <div class="boton1">
+            <a href="#">
+              <div class="boton">
+                <div class="text">
+                  <p>CITA</p>
+                  <h3>AGENDAR</h3>
+                </div>
+                <hr/>
+                <div class="icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+            </a>
+            
+            <a href="#">
+              <div class="boton">
+                <div class="text">
+                  <p>CITA</p>
+                  <h3>REPROGRAMAR <br> / CANCELAR</h3>
+                </div>
+                <hr/>
+                <div class="icon">
+                  <i class="fa-solid fa-x"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <a href="#">
+            <div class="boton">
+              <div class="text">
+                <p>CITAS</p>
+                <h3>AGREGAR FECHAS</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+          </a>
+
+          <div class="boton2">
+            <a href="#">
+              <div class="boton">
+                <div class="text">
+                  <p>AGREGAR NUEVA</p>
+                  <h3>HISTORIA CLINICA</h3>
+                </div>
+                <hr/>
+                <div class="icon">
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="boton">
+                <div class="text">
+                  <p>CLINICA</p>
+                  <h3>HISTORIA</h3>
+                </div>
+                <hr/>
+                <div class="icon">
+                  <i class="fa-solid fa-book"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <a href="#">
+            <div class="boton">
+              <div class="text">
+                <p>DATOS</p>
+                <h3>CONFIGURACIÓN</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <aside class="recordatorio">
+        <div class="right-column">
+          <div class="agenda">
+            <h2><i class="fas fa-calendar-alt"></i>Agenda</h2>
+            <div id="calendar"> 
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <script src="..//js/dashboardDoc.js" defer></script>
+</body>
+</html>

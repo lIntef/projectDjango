@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DENTAL LAB - S.G</title>
+  <link rel="stylesheet" href="{% static '/css/styles_login.css' %}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <img src="{% static 'img\logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
+    <h1>LABORATORIO DENTAL</h1>
+  </header>
+
+  <main>
+    <div class="container" id="main">
+      <div class="sign-up">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h1>Crear Cuenta</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>
+            O usa tu gmail para registrarte
+          </span>
+          <div class="document-container">
+            <select name="type" id="tipo" name="tipo" required>
+                <option value="" disabled selected>Tipo</option>
+                <option value="1">T.I</option>
+                <option value="2">C.C</option>
+                <option value="3">C.E</option>
+                <option value="4">C.I</option>
+            </select>
+            <input type="number" id="numero" name="numero" placeholder="No. Documento" required/>
+          </div>
+          <input type="text" id="username" name="username" placeholder="Nombre" required/>
+          <input type="email" id="email" name="email" placeholder="Email" required/>
+          <input type="password" id="password1" name="password1" placeholder="Contraseña" required/>
+          <input type="password" id="password2" name="password2" placeholder="Confirmar Contraseña" required/>
+          <button>Registrarme</button>
+        </form>
+      </div>
+
+      <div class="sign-in">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h1>Iniciar Sesión</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>Usa tu cuenta</span>
+          {% if error %}
+            <p style="color:red;">{{ error }}</p>
+          {% endif %}
+          {% if done %}
+            <p style="color:greenyellow;">{{ done }}</p>
+          {% endif %}
+          <input type="number" id="numer" name="numer" placeholder="No. Documento" required/>
+          <input type="password" id="contra" name="contra" placeholder="Contraseña" required/>
+          <a href="#"><i>¿Olvidó su contraseña?</i></a>
+          <button>Ingresar</button>
+        </form>
+      </div>
+
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-left">
+            <h1>¡REGISTRA TU CUENTA!</h1>
+            <p>Mantente conectado con nosotros, por favor ingresa sesión con tus datos</p>
+            <button id="signIn">Ingresar</button>
+          </div>
+          <div class="overlay-right">
+            <h1>¡BIENVENIDO!</h1>
+            <p>Ingresa tus datos y comienza a agendar tu cita en cualquier momento</p>
+            <button id="signUp">Registrarme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="{% static 'js/script_login.js' %}"></script>
+</body>
+</html>

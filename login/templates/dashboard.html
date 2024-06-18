@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME/ DASHBOARD</title>
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
+<script src="../js/dashboard.js" defer></script>
+</head>
+<body>
+<header>
+    <img src="img/logo,png.jfif" alt="Diente, Logo del laboratorio" title="Logo">
+    <h1>LABORATORIO DENTAL</h1>
+</header>
+
+<main>
+    <div class="navbar">
+        <div class="titulo-1">
+            <p>Home / Dashboard</p></div>
+        <input type="text" class="search" placeholder="Buscar ">
+        <div class="icons">
+            <i class="fas fa-cog icon"></i>
+            <i class="fas fa-bell icon"></i>
+            <i class="fa-solid fa-circle-user icon"></i>
+            
+        </div>
+    </div>
+    <div class="titulo-2">
+        <h1>Home/ Dashboard</h1>
+    </div>
+    <div class="container">
+            <div class="left-column">
+            <div class="section agendar">
+                <h2>Cita Agendar</h2>
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="section reprogramar-cancelar">
+                <h2>Cita Reprogramar/Cancelar</h2>
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="section clinica_historia">
+                <h2>Clinica Historia</h2>
+                <i class="fas fa-history"></i>
+            </div>
+            <div class="section configuracion">
+                <h2>Datos Configuración</h2>
+                <i class="fas fa-cog"></i>
+            </div>
+    </div>
+    <div class="right-column">
+        <div class="agenda">
+            <h2><i class="fas fa-calendar-alt"></i> Agenda</h2>
+            <div id="calendar"> </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
