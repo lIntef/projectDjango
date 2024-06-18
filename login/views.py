@@ -53,7 +53,6 @@ def registrarme(request):
                     return redirect('dashboardDoc')
                 else:
                     error_message = 'Credenciales inválidas'
-                    return render(request, 'loginregister.html', context)
 
             context = {
                 'error': error_message,
