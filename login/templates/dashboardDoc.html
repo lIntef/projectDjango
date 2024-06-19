@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DENTAL LAB - S.G</title>
-  <link rel="stylesheet" href="..//css/dashboardDoc.css">
+  <link rel="stylesheet" href="{% static '/css/dashboardDoc.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header>
-    <img src="..//img/logo.png" alt="Diente, Logo del laboratorio" title="Logo">
+    <img src="{% static 'img\logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
     <h1>LABORATORIO DENTAL</h1>
   </header>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div class="configuracion">
-          <a href="#"><i class="fa-solid fa-gear"></i></a>
+          <a href="{% url 'configuracion' %}"><i class="fa-solid fa-gear"></i></a>
         </div>
 
         <div class="notificacion">
@@ -40,44 +40,39 @@
 
             <ul class="profile-dropdown-list">
               <li class="profile-dropdown-list-item">
-                <a href="#">
+                <a href="{% url 'editaraccount' %}">
                   <i class="fa-regular fa-user"></i>
-                  Edit Profile
+                  Editar Perfil
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
-                <a href="#">
+                <a href="{% url 'correo' %}">
                   <i class="fa-regular fa-envelope"></i>
-                  Inbox
+                  Correo
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
-                <a href="#">
+                <a href="{% url 'calendario' %}">
                   <i class="fa-solid fa-chart-line"></i>
-                  Analytics
+                  Calendario
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
-                <a href="#">
+                <a href="{% url 'configuracion' %}">
                   <i class="fa-solid fa-sliders"></i>
-                  Settings
+                  Configuración
                 </a>
               </li>
 
-              <li class="profile-dropdown-list-item">
-                <a href="#">
-                  <i class="fa-regular fa-circle-question"></i>
-                  Help & Support
-                </a>
-              </li>
               <hr />
+
               <li class="profile-dropdown-list-item">
                 <a href="{% url 'signout' %}">
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Log out
+                  Salir
                 </a>
               </li>
             </ul>
@@ -94,7 +89,7 @@
       <section class="botones">
         <div class="botonesdos">
           <div class="boton1">
-            <a href="#">
+            <a href="{% url 'agendarcita' %}">
               <div class="boton">
                 <div class="text">
                   <p>CITA</p>
@@ -107,7 +102,7 @@
               </div>
             </a>
             
-            <a href="#">
+            <a href="{% url 'editarcita' %}">
               <div class="boton">
                 <div class="text">
                   <p>CITA</p>
@@ -121,7 +116,7 @@
             </a>
           </div>
 
-          <a href="#">
+          <a href="{% url 'agregarfechas' %}">
             <div class="boton">
               <div class="text">
                 <p>CITAS</p>
@@ -135,7 +130,7 @@
           </a>
 
           <div class="boton2">
-            <a href="#">
+            <a href="{% url 'newhistoriaclinica' %}">
               <div class="boton">
                 <div class="text">
                   <p>AGREGAR NUEVA</p>
@@ -148,7 +143,7 @@
               </div>
             </a>
 
-            <a href="#">
+            <a href="{% url 'historias' %}">
               <div class="boton">
                 <div class="text">
                   <p>CLINICA</p>
@@ -162,7 +157,7 @@
             </a>
           </div>
 
-          <a href="#">
+          <a href="{% url 'configuracion' %}">
             <div class="boton">
               <div class="text">
                 <p>DATOS</p>
@@ -188,6 +183,6 @@
       </aside>
     </main>
   </div>
-  <script src="..//js/dashboardDoc.js" defer></script>
+  <script src="{% static 'js/dashboardDoc.js' %}" defer></script>
 </body>
 </html>

@@ -74,12 +74,36 @@ def loginregister(request):
 def inicio(request):
     return render(request, 'inicio.html')
 
-def task(request):
-    return render(request, 'task.html')
-
 def signout(request):
     logout(request)
     return redirect('loginregister')
 
 def dashboardDoc(request):
     return render(request, 'dashboardDoc.html')
+
+def configuracion(request):
+    return render(request, 'configuracion.html')
+
+def editaraccount(request):
+    return render(request, 'editaraccount.html')
+
+def correo(request):
+    return render(request, 'correo.html')
+
+def calendario(request):
+    return render(request, 'calendario.html')
+
+def agendarcita(request):
+    return render(request, 'agendarcita.html')
+
+def editarcita(request):
+    return render(request, 'editarcitas.html')
+
+def newhistoriaclinica(request):
+    return render(request, 'newhistoriaclinica.html')
+
+def historias(request):
+    return render(request, 'historias.html')
+
+def agregarfechas(request):
+    return render(request, 'agregarfechas.html')

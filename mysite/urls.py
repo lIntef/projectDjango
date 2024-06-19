@@ -25,10 +25,17 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('', views.inicio, name="inicio"),
     path('loginregister/', views.registrarme, name="loginregister"),
-    path('task/', views.task, name="task"),
     path('dashboardDoc/', views.dashboardDoc, name="dashboardDoc"),
     path('signout/', views.signout, name="signout"),
-    
+    path('configuracion/', views.configuracion, name="configuracion"),
+    path('editaraccount/', views.editaraccount, name="editaraccount"),
+    path('correo/', views.correo, name="correo"),
+    path('calendario/', views.calendario, name="calendario"),
+    path('agendarcita/', views.agendarcita, name="agendarcita"),
+    path('editarcita/', views.editarcita, name="editarcita"),
+    path('newhistoriaclinica/', views.newhistoriaclinica, name="newhistoriaclinica"),
+    path('historias/', views.historias, name="historias"),
+    path('agregarfechas/', views.agregarfechas, name="agregarfechas")    
 ]
 
 if settings.DEBUG:
