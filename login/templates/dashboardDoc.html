@@ -18,10 +18,6 @@
     <div class="header2">
       <div class="headersup">
         <p id="home">Home / <b>Dashboard</b></p>
-        <div class="busqueda">
-          <input type="text" placeholder="Buscar">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
 
         <div class="configuracion">
           <a href="{% url 'configuracion' %}"><i class="fa-solid fa-gear"></i></a>
@@ -32,51 +28,52 @@
         </div>
 
         <nav class="navbar">
-          <div class="profile-dropdown">
-            <div onclick="toggle()" class="profile-dropdown-btn">
-              <div class="profile-img">
+            <div class="profile-dropdown">
+              <div onclick="toggle()" class="profile-dropdown-btn">
+                <h4 class="h4">{{ user.username|upper }}</h4>
+                <div class="profile-img">
+                </div>
               </div>
+
+              <ul class="profile-dropdown-list">
+                <li class="profile-dropdown-list-item">
+                  <a href="{% url 'editaraccount' %}">
+                    <i class="fa-regular fa-user"></i>
+                    Editar Perfil
+                  </a>
+                </li>
+
+                <li class="profile-dropdown-list-item">
+                  <a href="{% url 'correo' %}">
+                    <i class="fa-regular fa-envelope"></i>
+                    Correo
+                  </a>
+                </li>
+
+                <li class="profile-dropdown-list-item">
+                  <a href="{% url 'calendario' %}">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Calendario
+                  </a>
+                </li>
+
+                <li class="profile-dropdown-list-item">
+                  <a href="{% url 'configuracion' %}">
+                    <i class="fa-solid fa-sliders"></i>
+                    Configuración
+                  </a>
+                </li>
+
+                <hr />
+
+                <li class="profile-dropdown-list-item">
+                  <a href="{% url 'signout' %}">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    Salir
+                  </a>
+                </li>
+              </ul>
             </div>
-
-            <ul class="profile-dropdown-list">
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'editaraccount' %}">
-                  <i class="fa-regular fa-user"></i>
-                  Editar Perfil
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'correo' %}">
-                  <i class="fa-regular fa-envelope"></i>
-                  Correo
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'calendario' %}">
-                  <i class="fa-solid fa-chart-line"></i>
-                  Calendario
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'configuracion' %}">
-                  <i class="fa-solid fa-sliders"></i>
-                  Configuración
-                </a>
-              </li>
-
-              <hr />
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'signout' %}">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Salir
-                </a>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
 

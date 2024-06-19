@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('', views.inicio, name="inicio"),
     path('loginregister/', views.registrarme, name="loginregister"),
+    path('dashboard/', views.dashboard, name="dashboard"),
     path('dashboardDoc/', views.dashboardDoc, name="dashboardDoc"),
     path('signout/', views.signout, name="signout"),
     path('configuracion/', views.configuracion, name="configuracion"),

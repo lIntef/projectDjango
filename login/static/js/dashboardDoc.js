@@ -27,3 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+const profileDropdownBtn = document.querySelector('.profile-dropdown-btn');
+
+profileDropdownBtn.addEventListener('click', toggleCaption);
+
+function toggleCaption() {
+  profileDropdownBtn.classList.toggle('show-caption');
+}
+
+document.addEventListener('click', (event) => {
+  const isClickInside = profileDropdownBtn.contains(event.target);
+  if (!isClickInside) {
+    profileDropdownBtn.classList.remove('show-caption');
+  }
+});

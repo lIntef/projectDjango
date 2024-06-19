@@ -2,63 +2,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOME/ DASHBOARD</title>
-<link rel="stylesheet" href="../css/dashboard.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
-<script src="../js/dashboard.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DENTAL LAB - S.G</title>
+  <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-<header>
-    <img src="img/logo,png.jfif" alt="Diente, Logo del laboratorio" title="Logo">
+  <header>
+    <img src="{% static 'img\logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
     <h1>LABORATORIO DENTAL</h1>
-</header>
+  </header>
 
-<main>
-    <div class="navbar">
-        <div class="titulo-1">
-            <p>Home / Dashboard</p></div>
-        <input type="text" class="search" placeholder="Buscar ">
-        <div class="icons">
-            <i class="fas fa-cog icon"></i>
-            <i class="fas fa-bell icon"></i>
-            <i class="fa-solid fa-circle-user icon"></i>
-            
+  <div class="content">
+    <div class="header2">
+      <div class="headersup">
+        <p id="home">Home / <b>Dashboard</b></p>
+        <div class="busqueda">
+          <input type="text" placeholder="Buscar">
+          <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-    </div>
-    <div class="titulo-2">
-        <h1>Home/ Dashboard</h1>
-    </div>
-    <div class="container">
-            <div class="left-column">
-            <div class="section agendar">
-                <h2>Cita Agendar</h2>
-                <i class="fas fa-book"></i>
-            </div>
-            <div class="section reprogramar-cancelar">
-                <h2>Cita Reprogramar/Cancelar</h2>
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="section clinica_historia">
-                <h2>Clinica Historia</h2>
-                <i class="fas fa-history"></i>
-            </div>
-            <div class="section configuracion">
-                <h2>Datos Configuración</h2>
-                <i class="fas fa-cog"></i>
-            </div>
-    </div>
-    <div class="right-column">
-        <div class="agenda">
-            <h2><i class="fas fa-calendar-alt"></i> Agenda</h2>
-            <div id="calendar"> </div>
-            </div>
+
+        <div class="configuracion">
+          <a href="{% url 'configuracion' %}"><i class="fa-solid fa-gear"></i></a>
         </div>
+
+        <div class="notificacion">
+          <a href="#"><i class="fa-solid fa-bell"></i></a>
+        </div>
+
+        <nav class="navbar">
+          <div class="profile-dropdown">
+            <div onclick="toggle()" class="profile-dropdown-btn">
+              <div class="profile-img">
+              </div>
+            </div>
+
+            <ul class="profile-dropdown-list">
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'editaraccount' %}">
+                  <i class="fa-regular fa-user"></i>
+                  Editar Perfil
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'correo' %}">
+                  <i class="fa-regular fa-envelope"></i>
+                  Correo
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'calendario' %}">
+                  <i class="fa-solid fa-chart-line"></i>
+                  Calendario
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'configuracion' %}">
+                  <i class="fa-solid fa-sliders"></i>
+                  Configuración
+                </a>
+              </li>
+
+              <hr />
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'signout' %}">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  Salir
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="headerinf">
+        <p id="home2">Home / Dashboard</p>
+      </div>
     </div>
-</main>
+
+    <main>
+      <section class="botones">
+        <div class="botonesdos">
+          <a href="{% url 'agendarcita' %}">
+            <div class="boton">
+              <div class="text">
+                <p>CITA</p>
+                <h3>AGENDAR</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </a>
+          
+          <a href="{% url 'editarcita' %}">
+            <div class="boton">
+              <div class="text">
+                <p>CITA</p>
+                <h3>REPROGRAMAR<br> / CANCELAR</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-x"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="{% url 'historias' %}">
+            <div class="boton">
+              <div class="text">
+                <p>CLINICA</p>
+                <h3>HISTORIA</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-book"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="{% url 'configuracion' %}">
+            <div class="boton">
+              <div class="text">
+                <p>DATOS</p>
+                <h3>CONFIGURACIÓN</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <aside class="recordatorio">
+        <div class="right-column">
+          <div class="agenda">
+            <h2><i class="fas fa-calendar-alt"></i>Agenda</h2>
+            <div id="calendar"> 
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <script src="{% static 'js/dashboard.js' %}" defer></script>
 </body>
 </html>

@@ -18,7 +18,6 @@ body {
   font-family: 'Times New Roman', Times, serif, Helvetica, Arial, sans-serif;
   display: flex;
   min-height: 100%;
-  background: linear-gradient(rgba(5,7,12,0.3), rgba(5,7,12,0.3)), url("..//img/fondologin.jpg"), no-repeat center center fixed;
   width: 100%;
   background-size: cover;
 }
@@ -134,19 +133,6 @@ span{
   }
 }
 
-.busqueda{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 1.8rem;
-  background: #eeeeee;
-  border-radius: 30px;
-  padding: 5px 25px 5px 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  transition: .5s ease-in-out;
-  margin: 10px;
-}
 
 .configuracion i{
   color: white;
@@ -157,10 +143,6 @@ span{
   color: white;
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   margin: 0 15px 0 10px;
-}
-
-.busqueda:hover{
-  width: 18rem;
 }
 
 input{
@@ -185,9 +167,9 @@ i{
   cursor: pointer;
 }
 
-.profile-dropdown {
+.profile-dropdown{
   position: relative;
-  width: 100%;
+  
 }
 
 .profile-dropdown-btn {
@@ -195,17 +177,45 @@ i{
   align-items: center;
   border-radius: 50px;
   border: 1px solid var(--secondary);
-  transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in, border 0.3s;
-}
-
-.profile-dropdown-btn:hover {
-  background-color: var(--secondary-light-2);
-  box-shadow: var(--shadow);
+  transition: 0.5s ease-in-out;
+  position: relative;
+  justify-content: flex-end;
+  width: 50px;
+  height: 1.9rem;
+  background: #eeeeee;
+  border-radius: 30px;
   color: #232323;
 }
 
+.h4 {
+  display: none;
+}
+
+.profile-dropdown-btn:hover .h4 {
+  display: contents;
+}
+
+.profile-dropdown-btn.show-caption .h4 {
+  display: contents;
+}
+
+.profile-dropdown-btn:hover{
+  width: fit-content;
+  padding-left: 15px;
+  background-color: var(--secondary-light-2);
+  box-shadow: var(--shadow);
+  font-size: medium;
+}
+
+.profile-dropdown-btn.show-caption{
+  width: fit-content;
+  padding-left: 15px;
+  background-color: var(--secondary-light-2);
+  box-shadow: var(--shadow);
+  font-size: medium;
+}
+
 .profile-img {
-  position: relative;
   width: 8vw;
   height: 8vw;
   max-width: 50px;
@@ -213,6 +223,7 @@ i{
   border-radius: 50px;
   background: url(../img/profile-pic.jpg);
   background-size: cover;
+  border: 1px solid var(--secondary);
 }
 
 
@@ -220,6 +231,7 @@ i{
   position: absolute;
   width: 190px;
   right: 0;
+  top: 45px;
   background-color: #383A3F;
   border-radius: 10px;
   max-height: 0;
@@ -366,7 +378,7 @@ main{
   padding: 10px;
   justify-content: center;
   height: 13vw;
-  max-height: 75px;
+  max-height: 90px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

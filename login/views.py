@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.db import IntegrityError
 from .models import UserProfile
+from django.contrib.auth.decorators import login_required
+
 
 def registrarme(request):
     error_message = None
@@ -44,13 +46,14 @@ def registrarme(request):
             if request.method == 'POST':
                 numero = request.POST.get('numer')
                 password = request.POST.get('contra')
-                print(numero)
-                print(password)    
                 #user = UserProfile.objects.get(numero=numero, password=password)
                 user = authenticate(request, username=numero, password=password)
                 if user is not None:
                     login(request, user)
-                    return redirect('dashboardDoc')
+                    if numero =='020508'and password=='020508admin':
+                        return redirect('dashboardDoc')
+                    else:
+                        return redirect('dashboard')
                 else:
                     error_message = 'Credenciales inválidas'
 
@@ -78,32 +81,46 @@ def signout(request):
     logout(request)
     return redirect('loginregister')
 
+@login_required(login_url='loginregister')
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+@login_required(login_url='loginregister')
 def dashboardDoc(request):
     return render(request, 'dashboardDoc.html')
 
+@login_required(login_url='loginregister')
 def configuracion(request):
     return render(request, 'configuracion.html')
 
+@login_required(login_url='loginregister')
 def editaraccount(request):
     return render(request, 'editaraccount.html')
 
+@login_required(login_url='loginregister')
 def correo(request):
     return render(request, 'correo.html')
 
+@login_required(login_url='loginregister')
 def calendario(request):
     return render(request, 'calendario.html')
 
+@login_required(login_url='loginregister')
 def agendarcita(request):
     return render(request, 'agendarcita.html')
 
+@login_required(login_url='loginregister')
 def editarcita(request):
     return render(request, 'editarcitas.html')
 
+@login_required(login_url='loginregister')
 def newhistoriaclinica(request):
     return render(request, 'newhistoriaclinica.html')
 
+@login_required(login_url='loginregister')
 def historias(request):
     return render(request, 'historias.html')
 
+@login_required(login_url='loginregister')
 def agregarfechas(request):
     return render(request, 'agregarfechas.html')
