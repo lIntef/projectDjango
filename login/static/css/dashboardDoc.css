@@ -71,16 +71,11 @@ p{
   margin: 15px 3px;
 }
 
-span{
-  margin-bottom: 8px;
-}
-
 #home{
   font-size: clamp(0.85rem, 2.5vw, 1.5rem);
   float: left;
   width: 38%;
   margin: 0;
-  background-color: aqua;
 }
 
 #home2{
@@ -168,17 +163,19 @@ i{
   height: 100%;
   box-shadow: var(--shadow);
   width: 100%;
-  background-color: #e40c0c;
 }
 
 .navbar-list {
-  width: fit-content;
-  padding-right: 1rem;
+  position: relative;
+  padding-right: 0.6rem;
+  overflow: hidden;
+  width: 0;
 }
+
 
 .navbar-list li {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 
 .navbar-list li a {
@@ -217,6 +214,7 @@ i{
   padding-right: 0.5rem;
   span{
     display: contents;
+    
   }
 }
 
@@ -241,13 +239,6 @@ i{
   background-size: cover;
 }
 
-.profile-img:hover{
-  width: 8.5vw;
-  height: 8.5vw;
-  max-width: 52px;
-  max-height: 52px;
-}
-
 .profile-img i {
   position: absolute;
   right: 0;
@@ -262,41 +253,28 @@ i{
   text-align: center;
   height: 42px;
   font-family: 'Fredoka One';
+  font-size: clamp(0.4rem, 2vw,0.8rem);
   letter-spacing: 2px;
   margin: 0 0.5rem;
   display: none;
 }
 
-.profile-dropdown-list {
-  position: absolute;
-  top: 60px;
-  width: 190px;
-  right: 0;
-  background-color: #383A3F;
-  border-radius: 10px;
-  max-height: 0;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: max-height 0.5s;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.profile-dropdown-list hr {
-  border: 0.5px solid var(--dorado);
-  margin: 0;
-  margin-top: 5px;
-}
-
-.profile-dropdown-list.active {
-  max-height: 500px;
-  z-index: 1;
+.navbar-list.active {
+  width: fit-content;
 }
 
 .profile-dropdown-list-item {
-  padding: 0 0.5rem;
+  width: fit-content;
   transition: background-color 0.2s ease-in, padding-left 0.2s;
+  span{
+    display: none;
+  }
+}
+
+.profile-dropdown-list-item.hover{
+  span{
+    display: contents;
+  }
 }
 
 .profile-dropdown-list-item a {
@@ -309,21 +287,15 @@ i{
 }
 
 .profile-dropdown-list-item a i {
-  margin-right: 0.8rem;
-  font-size: 1.1rem;
-  width: 2.3rem;
-  height: 2.3rem;
+  font-size: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: var(--secondary);
   color: white;
   line-height: 2.3rem;
   text-align: center;
   border-radius: 50%;
   transition: margin-right 0.3s;
-}
-
-.profile-dropdown-list-item:hover {
-  padding-left: 1.5rem;
-  background-color: var(--secondary-light);
 }
 
 .content{

@@ -26,35 +26,28 @@
               <li class="profile-dropdown-list-item">
                 <a href="{% url 'editaraccount' %}">
                   <i class="fa-regular fa-user"></i>
-                  Editar Perfil
+                  <span>Editar Perfil</span>
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
                 <a href="{% url 'correo' %}">
                   <i class="fa-regular fa-envelope"></i>
-                  Correo
+                  <span>Correo</span>
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
                 <a href="{% url 'calendario' %}">
                   <i class="fa-solid fa-chart-line"></i>
-                  Calendario
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'configuracion' %}">
-                  <i class="fa-solid fa-sliders"></i>
-                  Configuración
+                  <span>Calendario</span>
                 </a>
               </li>
 
               <li class="profile-dropdown-list-item">
                 <a href="{% url 'signout' %}">
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Salir
+                  <span>Salir</span>
                 </a>
               </li>
           </ul>
@@ -67,48 +60,8 @@
     
               <span>
                 {{ user.username|upper }}
-                <br>
               </span>
             </div>
-    
-            <ul class="profile-dropdown-list">
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'editaraccount' %}">
-                  <i class="fa-regular fa-user"></i>
-                  Editar Perfil
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'correo' %}">
-                  <i class="fa-regular fa-envelope"></i>
-                  Correo
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'calendario' %}">
-                  <i class="fa-solid fa-chart-line"></i>
-                  Calendario
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'configuracion' %}">
-                  <i class="fa-solid fa-sliders"></i>
-                  Configuración
-                </a>
-              </li>
-
-              <hr />
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'signout' %}">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  Salir
-                </a>
-              </li>
-            </ul>
           </div>
         </nav>
       </div>

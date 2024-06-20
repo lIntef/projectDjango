@@ -71,16 +71,11 @@ p{
   margin: 15px 3px;
 }
 
-span{
-  margin-bottom: 8px;
-}
-
 #home{
   font-size: clamp(0.85rem, 2.5vw, 1.5rem);
   float: left;
-  width: 38%;
+  width: 35%;
   margin: 0;
-  background-color: aqua;
 }
 
 #home2{
@@ -168,13 +163,13 @@ i{
   height: 100%;
   box-shadow: var(--shadow);
   width: 100%;
-  background-color: #e40c0c;
 }
 
 .navbar-list {
-  width: fit-content;
+  position: relative;
   padding-right: 1rem;
 }
+
 
 .navbar-list li {
   display: inline-block;
