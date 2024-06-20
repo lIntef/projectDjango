@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
 const profileDropdownBtn = document.querySelector('.profile-dropdown-btn');
-const caption = document.querySelector('.h4');
 
 profileDropdownBtn.addEventListener('click', toggleCaption);
 
