@@ -124,3 +124,6 @@ def historias(request):
 @login_required(login_url='loginregister')
 def agregarfechas(request):
     return render(request, 'agregarfechas.html')
+
+def base(request):
+    return render(request, 'base.html')

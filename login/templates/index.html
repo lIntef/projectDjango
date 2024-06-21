@@ -1,21 +1,80 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DENTAL LAB - S.G</title>
-  <link rel="stylesheet" href="..//css/dashboardDoc.css">
+  <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header>
-    <img src="..//img/logo.png" alt="Diente, Logo del laboratorio" title="Logo">
+    <img src="{% static 'img\logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
     <h1>LABORATORIO DENTAL</h1>
   </header>
 
-  <main>
+  <div class="content">
+    <div class="header2">
+      <div class="headersup">
+        <p id="home">Home / <b>Dashboard</b></p>
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'editaraccount' %}">
+                  <i class="fa-regular fa-user"></i>
+                  <span>Editar Perfil</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'correo' %}">
+                  <i class="fa-regular fa-envelope"></i>
+                  <span>Correo</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'calendario' %}">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Calendario</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'signout' %}">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Salir</span>
+                </a>
+              </li>
+          </ul>
     
-  </main>
-  <script type="module" src="..//js/dashboardDoc.js"></script>
+          <div class="profile-dropdown">
+            <div onclick="toggle()" class="profile-dropdown-btn">
+              <div class="profile-img">
+                <i class="fa-solid fa-circle"></i>
+              </div>
+    
+              <span>
+                {{ user.username|upper }}
+              </span>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="headerinf">
+        <p id="home2">Home / Dashboard</p>
+      </div>
+    </div>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+  <script src="{% static 'js/dashboardDoc.js' %}" defer></script>
 </body>
 </html>

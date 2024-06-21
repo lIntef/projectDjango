@@ -129,18 +129,6 @@ p{
   }
 }
 
-
-.configuracion i{
-  color: white;
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-  margin: 10px;
-}
-.notificacion i{
-  color: white;
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-  margin: 0 15px 0 10px;
-}
-
 input{
   width: 100%;
   color: #232323;
