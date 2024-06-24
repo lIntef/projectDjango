@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/newhistoriaclinica.css' %}">
+{% endblock %}
+{% block titulo %}
+Nueva Historia Clínica
+{% endblock %}
+{% block content %}
+  <main>
+    <div class="historia">
+      <form action="" method="POST">
+        {% csrf_token %}
+        
+        <div class="seccion">
+          <h4>Datos Básicos</h4>
+          <div class="grid-container">
+            <div class="grid-item"><label>Dirección:</label><input type="number" placeholder="No. Documento" required/></div>
+            <div class="grid-item"><label>Teléfono:</label><input type="number" placeholder="Teléfono" required/></div>
+            <div class="grid-item"><label>Paciente:</label><input type="text" placeholder="Nombre del paciente" required/></div>
+            <div class="grid-item"><label>Identificación:</label><input type="number" placeholder="Número de identificación" required/></div>
+            <div class="grid-item"><label>Edad:</label><input type="number" placeholder="Edad" required/></div>
+            <div class="grid-item"><label>Ocupación:</label><input type="text" placeholder="Ocupación" required/></div>
+            <div class="grid-item"><label>Celular:</label><input type="number" placeholder="Número de celular" required/></div>
+            <div class="grid-item"><label>Fecha de Ingreso:</label><input type="date" required/></div>
+            <div class="grid-item"><label>Acudiente:</label><input type="text" placeholder="Nombre del acudiente" required/></div>
+          </div>
+        </div>
+        
+        <div class="seccion">
+          <h4>Anamnesis</h4>
+          <div class="grid-container">
+            <div class="grid-item"><label>Tratamiento con Medicación:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Reacciones Alérgicas:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Trastorno de la Tensión Arterial:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Diabetes:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Trastornos Emocionales:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Enfermedad Respiratoria:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Otros:</label><input type="text" placeholder="Especifique" required/></div>
+          </div>
+        </div>
+        
+        <div class="seccion">
+          <h4>Rehabilitación Oral</h4>
+          <div class="grid-container">
+            <div class="grid-item"><label>Prótesis Dental:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Total:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Acrílico:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Flexible:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Parcial:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Retenedores:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Panorámica:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Periapical:</label><input type="text" placeholder="Especifique" required/></div>
+          </div>
+        </div>
+        
+        <div class="seccion">
+          <h4>Higiene Oral</h4>
+          <div class="grid-container">
+            <div class="grid-item"><label>Cepillado Dental:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Seda Dental:</label><input type="text" placeholder="Especifique" required/></div>
+            <div class="grid-item"><label>Enjuague Bucal:</label><input type="text" placeholder="Especifique" required/></div>
+          </div>
+        </div>
+
+        <div class="seccion">
+          <h4>Descripción</h4>
+          <div class="grid-container full-width">
+            <textarea placeholder="Especifique" required></textarea>
+          </div>
+        </div>
+        
+        <div class="botones">
+          <button type="button">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  {% block extra_js %}
+    <script src="{% static 'js/newhistoriaclinica.js' %}" defer></script> 
+  {% endblock %}
+{% endblock %}

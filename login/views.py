@@ -115,7 +115,7 @@ def editarcita(request):
 
 @login_required(login_url='loginregister')
 def newhistoriaclinica(request):
-    return render(request, 'newhistoriaclinica.html')
+    return render(request, 'newHistoriaClinica.html')
 
 @login_required(login_url='loginregister')
 def historias(request):
@@ -126,4 +126,4 @@ def agregarfechas(request):
     return render(request, 'agregarfechas.html')
 
 def base(request):
-    return render(request, 'base.html')
+    return render(request, 'index.html')

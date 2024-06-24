@@ -11,42 +11,85 @@
 *{
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Times New Roman', Times, serif, Helvetica, Arial, sans-serif;
   display: flex;
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-size: cover;
+  background-color: #383A3F;
 }
 
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   background-color: #232323;
-  width: fit-content;
-  height: 100vh;
+  width: fit-content; /* Ajusta según el ancho que desees */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 10;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header2 {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.headersup {
+  background-color: #383A3F;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh; /* Ajusta según necesites */
+}
+
+.headerinf {
+  background-color: #272727;
+  color: white;
+  padding: 10px 15px;
+  height: 6vh; /* Ajusta según necesites */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* El contenido principal debajo de las barras superiores */
+.content > *:not(.header2) {
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Ajustes adicionales para elementos dentro del header */
+header img {
+  width: 40px;
+  margin-bottom: 20px;
 }
 
 header h1 {
   writing-mode: vertical-rl;
-  letter-spacing: 7px;
-  font-size: clamp(0.85rem, 2.5vw, 1.5rem);
   transform: rotate(180deg);
-  color: #fff;
-  margin: 30px 0 ;
-  font-weight: bold;
-}
-
-header img {
-  width: 8vw;
-  max-width: 60px;
+  color: white;
+  margin: 30px 0;
+  font-size: 14px; /* Ajusta según necesites */
 }
 
 h1{
@@ -88,37 +131,6 @@ p{
   margin-right: 0;
 }
 
-.header2{
-  height: fit-content;
-}
-
-.headersup{
-  display: flex;
-  background-color: #383A3F;
-  color: white;
-  justify-content: space-between;
-  padding: 15px;
-  position: relative;
-  width: 100%;
-  height: 9vw;
-  max-height: 8vh;
-  flex-direction: row;
-  align-items: center;
-}
-
-.headerinf{
-  display: flex;
-  background-color: #272727;
-  color: white;
-  position: relative;
-  width: 100%;
-  height: 7vw;
-  max-height: 6vh;
-  flex-direction: row;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
 
 @keyframes marquee {
   from {
@@ -284,10 +296,4 @@ i{
   text-align: center;
   border-radius: 50%;
   transition: margin-right 0.3s;
-}
-
-.content{
-  width: 100%;
-  padding: 0;
-  background-color: #D9D9D9;
 }

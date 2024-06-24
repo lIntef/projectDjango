@@ -1,173 +1,109 @@
+{% extends 'index.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DENTAL LAB - S.G</title>
-  <link rel="stylesheet" href="{% static '/css/dashboardDoc.css' %}">
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dashboardDoc.css' %}">
+{% endblock %}
 
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
-  <header>
-    <img src="{% static 'img\logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
-    <h1>LABORATORIO DENTAL</h1>
-  </header>
-
-  <div class="content">
-    <div class="header2">
-      <div class="headersup">
-        <p id="home">Home / <b>Dashboard</b></p>
-
-        <nav class="navbar">
-          <ul class="navbar-list">
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'editaraccount' %}">
-                  <i class="fa-regular fa-user"></i>
-                  <span>Editar Perfil</span>
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'correo' %}">
-                  <i class="fa-regular fa-envelope"></i>
-                  <span>Correo</span>
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'calendario' %}">
-                  <i class="fa-solid fa-chart-line"></i>
-                  <span>Calendario</span>
-                </a>
-              </li>
-
-              <li class="profile-dropdown-list-item">
-                <a href="{% url 'signout' %}">
-                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                  <span>Salir</span>
-                </a>
-              </li>
-          </ul>
-    
-          <div class="profile-dropdown">
-            <div onclick="toggle()" class="profile-dropdown-btn">
-              <div class="profile-img">
-                <i class="fa-solid fa-circle"></i>
-              </div>
-    
-              <span>
-                {{ user.username|upper }}
-              </span>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <div class="headerinf">
-        <p id="home2">Home / Dashboard</p>
-      </div>
-    </div>
-
-    <main>
-      <section class="botones">
-        <div class="botonesdos">
-          <div class="boton1">
-            <a href="{% url 'agendarcita' %}">
-              <div class="boton">
-                <div class="text">
-                  <p>CITA</p>
-                  <h3>AGENDAR</h3>
-                </div>
-                <hr/>
-                <div class="icon">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-              </div>
-            </a>
-            
-            <a href="{% url 'editarcita' %}">
-              <div class="boton">
-                <div class="text">
-                  <p>CITA</p>
-                  <h3>REPROGRAMAR <br> / CANCELAR</h3>
-                </div>
-                <hr/>
-                <div class="icon">
-                  <i class="fa-solid fa-x"></i>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <a href="{% url 'agregarfechas' %}">
+{% block content %}
+  <main>
+    <section class="botones">
+      <div class="botonesdos">
+        <div class="boton1">
+          <a href="{% url 'agendarcita' %}">
             <div class="boton">
               <div class="text">
-                <p>CITAS</p>
-                <h3>AGREGAR FECHAS</h3>
+                <p>CITA</p>
+                <h3>AGENDAR</h3>
               </div>
               <hr/>
               <div class="icon">
-                <i class="fa-solid fa-calendar-days"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
               </div>
             </div>
           </a>
-
-          <div class="boton2">
-            <a href="{% url 'newhistoriaclinica' %}">
-              <div class="boton">
-                <div class="text">
-                  <p>AGREGAR NUEVA</p>
-                  <h3>HISTORIA CLINICA</h3>
-                </div>
-                <hr/>
-                <div class="icon">
-                  <i class="fa-solid fa-pen"></i>
-                </div>
-              </div>
-            </a>
-
-            <a href="{% url 'historias' %}">
-              <div class="boton">
-                <div class="text">
-                  <p>CLINICA</p>
-                  <h3>HISTORIA</h3>
-                </div>
-                <hr/>
-                <div class="icon">
-                  <i class="fa-solid fa-book"></i>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <a href="{% url 'configuracion' %}">
+          
+          <a href="{% url 'editarcita' %}">
             <div class="boton">
               <div class="text">
-                <p>DATOS</p>
-                <h3>CONFIGURACIÓN</h3>
+                <p>CITA</p>
+                <h3>REPROGRAMAR <br> / CANCELAR</h3>
               </div>
               <hr/>
               <div class="icon">
-                <i class="fa-solid fa-gear"></i>
+                <i class="fa-solid fa-x"></i>
               </div>
             </div>
           </a>
         </div>
-      </section>
 
-      <aside class="recordatorio">
-          <div class="agenda">
-            <img src="{% static 'img\calendario.jpg' %}" alt="asignacion de citas" title="asignacion de citas" height="100%" width="100%">
+        <a href="{% url 'agregarfechas' %}">
+          <div class="boton">
+            <div class="text">
+              <p>CITAS</p>
+              <h3>AGREGAR FECHAS</h3>
+            </div>
+            <hr/>
+            <div class="icon">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
           </div>
-          <div class="citas">
-            
+        </a>
+
+        <div class="boton2">
+          <a href="{% url 'newhistoriaclinica' %}">
+            <div class="boton">
+              <div class="text">
+                <p>AGREGAR NUEVA</p>
+                <h3>HISTORIA CLINICA</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-pen"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="{% url 'historias' %}">
+            <div class="boton">
+              <div class="text">
+                <p>CLINICA</p>
+                <h3>HISTORIA</h3>
+              </div>
+              <hr/>
+              <div class="icon">
+                <i class="fa-solid fa-book"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <a href="{% url 'configuracion' %}">
+          <div class="boton">
+            <div class="text">
+              <p>DATOS</p>
+              <h3>CONFIGURACIÓN</h3>
+            </div>
+            <hr/>
+            <div class="icon">
+              <i class="fa-solid fa-gear"></i>
+            </div>
           </div>
-      </aside>
-    </main>
-  </div>
-  <script src="{% static 'js/dashboardDoc.js' %}" defer></script>
-</body>
-</html>
+        </a>
+      </div>
+    </section>
+
+    <aside class="recordatorio">
+        <div class="agenda">
+          <img src="{% static 'img\calendario.jpg' %}" alt="asignacion de citas" title="asignacion de citas" height="100%" width="100%">
+        </div>
+        <div class="citas">
+          
+        </div>
+    </aside>
+  </main>
+  {% block extra_js %}
+    <script src="{% static 'js/dashboardDoc.js' %}" defer></script> 
+  {% endblock %}
+{% endblock %}
+    

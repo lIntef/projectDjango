@@ -2,9 +2,13 @@
 
 {% load static %}
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dashboardDoc.css' %}">
 {% endblock %}
 
 {% block content %}
-  Hello world
+  
+  {% block extra_js %}
+    <script src="{% static 'js/dashboardDoc.js' %}" defer></script> 
+  {% endblock %}
 {% endblock %}
+    
