@@ -76,7 +76,6 @@ header {
 .content > *:not(.header2) {
   overflow-y: auto;
   flex: 1;
-  background-color: #383A3F;
 }
 
 /* Ajustes adicionales para elementos dentro del header */

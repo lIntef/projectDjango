@@ -149,3 +149,85 @@ input:-webkit-autofill:focus {
     border-radius: 6px;
     border: 3px solid #383A3F;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #232323;
+    width: 60px; /* Ajusta según el ancho que desees */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    padding: 20px 0;
+  }
+  
+  .content {
+    flex: 1;
+    margin-left: 60px; /* Debe coincidir con el ancho del header */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .header2 {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  
+  .headersup {
+    background-color: #383A3F;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh; /* Ajusta según necesites */
+  }
+  
+  .headerinf {
+    background-color: #272727;
+    color: white;
+    padding: 10px 15px;
+    height: 6vh; /* Ajusta según necesites */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* El contenido principal debajo de las barras superiores */
+  .content > *:not(.header2) {
+    overflow-y: auto;
+    flex: 1;
+  }
+  
+  /* Ajustes adicionales para elementos dentro del header */
+  header img {
+    width: 40px;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: white;
+    margin: 30px 0;
+    font-size: 14px; /* Ajusta según necesites */
+  }
