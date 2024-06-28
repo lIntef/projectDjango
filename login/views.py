@@ -3,9 +3,25 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.db import IntegrityError
-from .models import UserProfile
+from .models import *
 from django.contrib.auth.decorators import login_required
 
+def newhistoriaclinica(request):
+    if request.method == 'POST':
+        try:
+            user = Valoracion.objects.create(
+                tipo=request.POST['type'],
+                numero=request.POST['numero'],
+                username=request.POST['username'],
+                email=request.POST['email'],
+            )
+            user.save()
+            success_message = 'Cuenta Creada Correctamente, Por favor inicie sesión'
+        except IntegrityError as e:
+            if 'unique constraint' in str(e):
+                error_message = 'El usuario ya fue creado'
+            else:
+                error_message = f'Error al crear el usuario: {e}'
 
 def registrarme(request):
     error_message = None
@@ -81,47 +97,47 @@ def signout(request):
     logout(request)
     return redirect('loginregister')
 
-@login_required(login_url='loginregister')
+@login_required()
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def dashboardDoc(request):
     return render(request, 'dashboardDoc.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def configuracion(request):
     return render(request, 'configuracion.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def editaraccount(request):
     return render(request, 'editaraccount.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def correo(request):
     return render(request, 'correo.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def calendario(request):
     return render(request, 'calendario.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def agendarcita(request):
     return render(request, 'agendarcita.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def editarcita(request):
     return render(request, 'editarcitas.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def newhistoriaclinica(request):
     return render(request, 'newHistoriaClinica.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def historias(request):
     return render(request, 'historias.html')
 
-@login_required(login_url='loginregister')
+@login_required()
 def agregarfechas(request):
     return render(request, 'agregarfechas.html')
 

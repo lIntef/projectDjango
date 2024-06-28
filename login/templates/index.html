@@ -5,50 +5,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DENTAL LAB - S.G</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   {% block extra_css %}
   {% endblock %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="d-flex">
-  <header class="sidebar">
-    <img src="{% static 'img/logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo" class="logo">
-    <h1 class="vertical-text">LABORATORIO DENTAL</h1>
+<body>
+  <header>
+    <img src="{% static 'img/logo.png' %}" alt="Diente, Logo del laboratorio" title="Logo">
+    <h1>LABORATORIO DENTAL</h1>
   </header>
 
-  <div class="content flex-grow-1">
-    <div class="header-top d-flex justify-content-between align-items-center">
-      <p class="breadcrumb mb-0">Home / Dashboard</p>
-      <div class="profile-icon dropdown">
-        <img src="{% static 'img/profile-pic.jpg' %}" alt="Profile" class="rounded-circle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-          <li><a class="dropdown-item" href="{% url 'editaraccount' %}">Editar Perfil</a></li>
-          <li><a class="dropdown-item" href="{% url 'correo' %}">Correo</a></li>
-          <li><a class="dropdown-item" href="{% url 'calendario' %}">Calendario</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="{% url 'signout' %}">Salir</a></li>
-        </ul>
+  <div class="content">
+    <div class="header2">
+      <div class="headersup">
+        <p id="home">Home / <b>Dashboard</b></p>
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'editaraccount' %}">
+                  <i class="fa-regular fa-user"></i>
+                  <span>Editar Perfil</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'correo' %}">
+                  <i class="fa-regular fa-envelope"></i>
+                  <span>Correo</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'calendario' %}">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <span>Calendario</span>
+                </a>
+              </li>
+
+              <li class="profile-dropdown-list-item">
+                <a href="{% url 'signout' %}">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Salir</span>
+                </a>
+              </li>
+          </ul>
+    
+          <div class="profile-dropdown">
+            <div onclick="toggle()" class="profile-dropdown-btn">
+              <div class="profile-img">
+                <i class="fa-solid fa-circle"></i>
+              </div>
+    
+              <span>
+                {{ user.username|upper }}
+              </span>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="headerinf">
+        
+        <p id="home2">{% block titulo %}Home / Dashboard{% endblock %}</p>
+        
       </div>
     </div>
-    <div class="header-bottom">
-      <h2 class="mb-0">{% block titulo %}Home / Dashboard{% endblock %}</h2>
-    </div>
-    
-    <main class="main-content">
-      {% block content %}
-      <!-- El contenido principal irá aquí -->
-      {% endblock %}
-    </main>
-  </div>
 
-  <!-- Bootstrap JS and Popper.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  
+    {% block content %}
+    {% endblock %}
+  </div>
   <script src="{% static 'js/dashboardDoc.js' %}" defer></script> 
   {% block extra_js %}     
   {% endblock %}
