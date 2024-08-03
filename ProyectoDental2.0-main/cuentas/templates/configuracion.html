@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v1.2">
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Configuración del Usuario</h4>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            
+            {% for field in form %}
+            <div class="mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                
+                {% if field.name == 'imagen' and field.value %}
+                    <br/>
+                    <img src="{{ field.value.url }}" width="100" height="100" alt="Imagen de cuenta" style="object-fit: cover; object-position: center;">
+                {% endif %}
+                
+                {% if field.name == 'tipo' %}
+                <select class="form-select" name="{{ field.name }}" id="{{ field.id_for_label }}">
+                    <option value="" {% if not field.value %}selected{% endif %}>Selecciona una opción</option>
+                    {% for value, display_name in field.field.choices %}
+                    <option value="{{ value }}" {% if value == field.value %}selected{% endif %}>{{ display_name }}</option>
+                    {% endfor %}
+                </select>
+                {% else %}
+                <input type="{{ field.field.widget.input_type }}"
+                       class="form-control"
+                       name="{{ field.name }}"
+                       id="{{ field.id_for_label }}"
+                       aria-describedby="helpId"
+                       placeholder="{{ field.label }}"
+                       value="{{ field.value | default_if_none:'' }}"
+                       {% if field.field.required %}required{% endif %}
+                       {% if field.field.widget.attrs %}{{ field.field.widget.attrs|safe }}{% endif %}>
+                {% endif %}
+            </div>
+            <div class="col-12 help-text">{{ field.errors }}</div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a class="btn btn-warning" href="{% url 'dashboard' %}" onclick="event.preventDefault(); history.back();" role="button">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/historias.js' %}?v1.2"></script> 
+{% endblock %}

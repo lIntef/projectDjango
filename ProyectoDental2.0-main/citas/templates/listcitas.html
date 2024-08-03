@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/elementos.css' %}?v1.2">
+{% endblock %}
+
+{% block titulo %}
+Citas Agendadas
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <a class="btn btn-primary btn-custom" href="{% url 'dashboard' %}" role="button">
+            <i class="fas fa-arrow-left text-white"></i> Volver
+        </a>
+        <a class="btn btn-success btn-custom" href="{% url 'crearcitas' %}" role="button">
+            <i class="fas fa-plus text-white"></i> Agendar Nueva Cita
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Paciente</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Motivo</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Reagendar</th>
+                        <th scope="col">Cancelar</th>
+                        {% if user.is_superuser %}
+                        <th scope="col">Actualizar</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cita in citas %}
+                    <tr>
+                        <td>{{ cita.paciente }}</td>
+                        <td>{{ cita.paciente.username }}</td>
+                        <td>{{ cita.fecha_hora.fecha|date:"d-m-Y" }}</td>
+                        <td>{{ cita.fecha_hora.hora|time:"H:i" }}</td>
+                        <td>{{ cita.get_motivo_display }}</td>
+                        <td>{{ cita.get_estado_display }}</td>
+                        <td>
+                            <a {% if cita.estado == 'programada' %}href="{% url 'editarcitas' cita.id %}" class="btn btn-warning"{% else %}class="btn btn-secondary disabled"{% endif %}>Reagendar Cita</a>
+                        </td>
+                        <td>
+                            <button {% if cita.estado == 'programada' %}class="btn btn-danger cancelar-cita-btn"{% else %}class="btn btn-secondary disabled"{% endif %} data-cita-id="{{ cita.id }}">Cancelar
+                                Cita</button>
+                        </td>
+                        <td>
+                            {% if user.is_superuser %}
+                            <button {% if cita.estado == 'programada' %}class="btn btn-info confirmar-actualizacion-btn"{% else %}class="btn btn-secondary disabled"{% endif %} data-cita-id="{{ cita.id }}">Actualizar Asistencia</button>
+                            {% endif %}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/citas.js' %}?v2.8"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block titulo %}
+Calendario de Citas Programadas
+{% endblock %}
+
+{% block content %}
+    <div id="calendar"></div>
+    <script id="citas-data" type="application/json">
+        [
+            {% for cita in citas %}
+                {
+                    "paciente": "{{ cita.paciente.username }}",
+                    "motivo": "{{ cita.motivo }}",
+                    "start": "{{ cita.fecha_hora.fecha|date:"Y-m-d" }}T{{ cita.fecha_hora.hora|date:"H:i:s" }}",
+                    "end": "{{ cita.fecha_hora.fecha|date:"Y-m-d" }}T{{ cita.fecha_hora.hora|date:"H:i:s" }}"
+                }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+    </script>
+    <script id="is-superuser" type="application/json">
+        {{ user.is_superuser|yesno:"True,False" }}
+    </script>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/busqueda.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/es.js"></script>
+    <script src="{% static 'js/calendario.js' %}"></script>
+{% endblock %}
