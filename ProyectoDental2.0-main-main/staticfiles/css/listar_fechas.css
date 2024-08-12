@@ -1,0 +1,139 @@
+.card {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header .btn-success {
+  background-color: #cab97d;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: #cab97d;
+  border: none;
+  width: 80px;
+  height: 44px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.card-header .btn-success:hover {
+  background-color: #9e905c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px #f0e9d2;
+}
+.btn-primary:hover {
+  background-color: #9e905c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px #f0e9d2;
+}
+
+.card-body {
+  padding: 30px;
+  border-color: #000000;
+}
+
+.card-title {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: rgb(58, 54, 54);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px;
+  border: #000000;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+.table td {
+  padding: 15px;
+  vertical-align: middle;
+  border-color: #000000;
+  border-top: #000000;
+  border-left: #000000;
+  border-right: #000000;
+  background-color: #f5f4f2;
+  color: #000000;
+}
+
+.btn {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-warning {
+  background-color: #8b7004a6;
+  border: none;
+  color: #ffff;
+}
+
+.btn-warning:hover {
+  background-color: #bb9708;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgb(255, 255, 255);
+}
+
+.btn-danger {
+  background-color: #333;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #691511;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3);
+}
+
+/* Modal styles */
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.close {
+  font-size: 30px;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #333;
+}

@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/editar_fechas.css' %}?v1.6">
+{% endblock %}
+
+{% block content %}
+<div class="card-body">
+      <div class="col align-items-center flex-col right-column">
+        <div class="container">
+          {% include 'formsfechas.html' %}
+        </div>
+      </div>
+</div>
+{% endblock %}
+
+

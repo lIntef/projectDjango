@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/listar_fechas.css' %}?v1.2">
+
+
+
+
+{% endblock %}
+
+{% block titulo %}
+Fechas Disponibles
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <a class="btn btn-primary btn-custom" href="{% url 'dashboard' %}" role="button">
+            <i class="fas fa-arrow-left text-white"></i> Volver
+        </a>
+        <a class="btn btn-success btn-custom" href="{% url 'crearfechas' %}" role="button">
+            <i class="fas fa-plus text-white"></i> Agregar Nueva Fecha
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disponibilidad in disponibilidades %}
+                    <tr>
+                        <td>{{ disponibilidad.fecha }}</td>
+                        <td>{{ disponibilidad.hora }}</td>
+                        <td>
+                            <a href="{% url 'editarfechas' disponibilidad.id %}" class="btn btn-warning" role="button">Editar</a>
+                            |
+                            <button class="btn btn-danger" onclick="confirmarEliminacion('{{ disponibilidad.id }}')">Borrar</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div id="confirmarModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <p>¿Estás seguro de que deseas eliminar esta fecha?</p>
+        <form id="formEliminar" method="POST" action="">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/fechas.js' %}"></script>
+{% endblock %}
